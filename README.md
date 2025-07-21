@@ -1,5 +1,7 @@
 # qrcode_generator
 
+Para acessar: [https://fernandacaramico.github.io/qrcode_generator/](https://fernandacaramico.github.io/qrcode_generator/).
+
 Gerador utilizado seguindo API [https://goqr.me/api/](https://goqr.me/api/).
 
 ## MIT License
