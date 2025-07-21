@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code generator</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>QR Code generator</h1>
+        <p>
+            <em>Generate your own Quick Response Code - <a href="https://goqr.me/api/">https://goqr.me/api/</a></em>
+        </p>
+        
+        <input type="text" id="text" placeholder="Insert your text" style="width: 500px;"/>
+        <div class="buttons">
+            <button onclick="generate();">Generate</button>
+        </div>
+        <img src="" alt="[ Generated QR Code ]" id="result" style="width: 200px;">
+
+
+    </div>
+</body>
+
+</html>
+
+<script>
+    function generate() {
+    let size = "200x200";
+    let qrtext = text.value;
+    let baseURL = "http://api.qrserver.com/v1/create-qr-code/";
+
+    let url = `${baseURL}?data=${qrtext}&size=${size}`;
+
+    result.src = url;
+};
+</script>
