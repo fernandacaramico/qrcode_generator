@@ -29,11 +29,11 @@
 
 <script>
     function generate() {
-    let size = "200x200";
+    let size = "200";
     let qrtext = text.value;
     let baseURL = "http://api.qrserver.com/v1/create-qr-code/";
 
-    let url = `${baseURL}?data=${qrtext}&size=${size}`;
+    let url = `${baseURL}?data=${qrtext}&size=${size}x${size}&bgcolor=CCCCCC`;
 
     result.src = url;
 };
