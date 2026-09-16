@@ -8,18 +8,25 @@
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 
+
 <body>
     <div class="container">
         <h1>QR Code generator</h1>
         <p>
             <em>Generate your own Quick Response Code - <a href="https://goqr.me/api/">https://goqr.me/api/</a></em>
         </p>
+
+        <input type="text" id="text" placeholder="Insert your text" style="width: 500px;" />
+        <br>
+        <input type="color" id="inputColor" value="#fff" onchange="atualizarCor()" >
         
-        <input type="text" id="text" placeholder="Insert your text" style="width: 500px;"/>
         <div class="buttons">
             <button onclick="generate();">Generate</button>
         </div>
-        <img src="" alt="[ Generated QR Code ]" id="result" style="width: 200px;">
+        <br>
+        <div id="qrcodeDiv" class="qrcode-div">
+            <img src="" alt="[ Generated QR Code will show up here ]" id="result" style="width: 200px; padding: 30px;">
+        </div>
 
 
     </div>
@@ -29,12 +36,19 @@
 
 <script>
     function generate() {
-    let size = "200";
-    let qrtext = text.value;
-    let baseURL = "http://api.qrserver.com/v1/create-qr-code/";
+        let size = "200";
+        let qrtext = text.value;
+        let baseURL = "http://api.qrserver.com/v1/create-qr-code/";
+        let bgColor = ""
+        for (i = 1; i < inputColor.value.length; i++) {
+            bgColor += inputColor.value[i]
+        }
+        let url = `${baseURL}?data=${qrtext}&size=${size}x${size}&bgcolor=${bgColor}`;
+        result.style.backgroundColor = inputColor.value;
+        result.src = url;
+    };
 
-    let url = `${baseURL}?data=${qrtext}&size=${size}x${size}&bgcolor=CCCCCC`;
-
-    result.src = url;
-};
+    function atualizarCor() {
+        generate()
+    }
 </script>

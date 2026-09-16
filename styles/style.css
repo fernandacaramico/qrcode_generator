@@ -3,18 +3,18 @@
 }
 
 body {
-    color: #212427;
     background-color: #CCCCCC;
+    color: #212427;
 }
 
 button {
+    margin: 10px 0;
     padding: 10px 20px;
+    border: none;
     background-color: #007BFF;
     color: white;
-    border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin: 10px 0;
 }
 
 button:hover {
@@ -26,4 +26,8 @@ button:hover {
     margin: 0 auto;
     padding: 20px;
     text-align: center;
+}
+
+input {
+    margin: 20px 0;
 }
